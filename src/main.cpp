@@ -29,7 +29,7 @@ void mypage(){
     String message = "<html><head><meta charset=\"utf-8\"><title>Test</title></head>"
                     "<body>"
                     "<head>my page<head>"
-                    " IOT 기초 "
+                    " IoT 기초 "
                     "</body></html>";
     server.send(200,"text/html",message);
 }
@@ -48,12 +48,13 @@ void Relay_off(){
   server.send(200,"text/plain",message);
 }
 
+/* Relay_toggle function
 void Relay_toggle(){
   Serial.println("Relay_Toggle");
   digitalWrite(Relay, !digitalRead(Relay));
   String message = "Realy Toggle";
   server.send(200,"text/plain",message);
-}
+} */
 
 void setup() {
   // put your setup code here, to run once:
@@ -85,7 +86,7 @@ void setup() {
   server.on("/mypage",mypage);
   server.on("/Relay_on",Relay_on);
   server.on("/Relay_off",Relay_off);
-  server.on("/Relay_toggle",Relay_toggle);
+  //server.on("/Relay_toggle",Relay_toggle);
   server.onNotFound(handleNotFound);
   server.begin();
   Serial.println("HTTP server started");
